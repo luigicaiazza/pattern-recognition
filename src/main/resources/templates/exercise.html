@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+span.cls_003 {
+	font-family: Arial, serif;
+	font-size: 22.5px;
+	color: rgb(0, 0, 0);
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: none
+}
+
+div.cls_003 {
+	font-family: Arial, serif;
+	font-size: 22.5px;
+	color: rgb(0, 0, 0);
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: none
+}
+
+span.cls_004 {
+	font-family: Arial, serif;
+	font-size: 19.3px;
+	color: rgb(0, 0, 0);
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: none
+}
+
+div.cls_004 {
+	font-family: Arial, serif;
+	font-size: 19.3px;
+	color: rgb(0, 0, 0);
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: none
+}
+
+span.cls_002 {
+	font-family: Arial, serif;
+	font-size: 11.3px;
+	color: rgb(0, 0, 0);
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none
+}
+
+div.cls_002 {
+	font-family: Arial, serif;
+	font-size: 11.3px;
+	color: rgb(0, 0, 0);
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none
+}
+
+span.cls_005 {
+	font-family: Courier New, serif;
+	font-size: 10.5px;
+	color: rgb(0, 0, 0);
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none
+}
+
+div.cls_005 {
+	font-family: Courier New, serif;
+	font-size: 10.5px;
+	color: rgb(0, 0, 0);
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none
+}
+-->
+</style>
+<title>Pattern Recognition Exercise - Luigi Caiazza</title>
+</head>
+<body>
+	<div
+		style="position: absolute; left: 50%; margin-left: -297px; top: 0px; width: 595px; height: 842px; border-style: outset; overflow: hidden">
+		<div style="position: absolute; left: 30.43px; top: 83.63px"
+			class="cls_003">
+			<span class="cls_003">Programming Test - Pattern Recognition</span>
+		</div>
+		<div style="position: absolute; left: 30.43px; top: 126.08px"
+			class="cls_004">
+			<span class="cls_004">Pattern Recognition</span>
+		</div>
+		<div style="position: absolute; left: 30.43px; top: 168.52px"
+			class="cls_002">
+			<span class="cls_002">Computer vision involves analyzing
+				patterns in visual images and reconstructing the real world objects
+				that</span>
+		</div>
+		<div style="position: absolute; left: 30.43px; top: 186.14px"
+			class="cls_002">
+			<span class="cls_002">produced them. The process in often
+				broken up into two phases: feature detection and pattern
+				recognition.</span>
+		</div>
+		<div style="position: absolute; left: 30.43px; top: 203.76px"
+			class="cls_002">
+			<span class="cls_002">Feature detection involves selecting
+				important features of the image; pattern recognition involves</span>
+		</div>
+		<div style="position: absolute; left: 30.43px; top: 221.37px"
+			class="cls_002">
+			<span class="cls_002">discovering patterns in the features. We
+				will investigate a particularly clean pattern recognition problem</span>
+		</div>
+		<div style="position: absolute; left: 30.43px; top: 238.99px"
+			class="cls_002">
+			<span class="cls_002">involving points and line segments. This
+				kind of pattern recognition arises in many other applications, for</span>
+		</div>
+		<div style="position: absolute; left: 30.43px; top: 256.61px"
+			class="cls_002">
+			<span class="cls_002">example statistical data analysis.</span>
+		</div>
+		<div style="position: absolute; left: 30.43px; top: 291.04px"
+			class="cls_004">
+			<span class="cls_004">Problem to solve</span>
+		</div>
+		<div style="position: absolute; left: 30.43px; top: 333.49px"
+			class="cls_002">
+			<span class="cls_002">Given a set of N feature points in the
+				plane, determine every line that contains N or more of the points,
+				and</span>
+		</div>
+		<div style="position: absolute; left: 30.43px; top: 351.10px"
+			class="cls_002">
+			<span class="cls_002">return all points involved. You should
+				also expose a REST API that will allow the caller to:</span>
+		</div>
+		<div style="position: absolute; left: 54.45px; top: 380.73px"
+			class="cls_002">
+			<span class="cls_002">Add a point to the space</span>
+		</div>
+		<div style="position: absolute; left: 63.26px; top: 415.17px"
+			class="cls_005">
+			<span class="cls_005">POST /point with body { "x": ..., "y":
+				... }</span>
+		</div>
+		<div style="position: absolute; left: 54.45px; top: 448.80px"
+			class="cls_002">
+			<span class="cls_002">Get all points in the space</span>
+		</div>
+		<div style="position: absolute; left: 63.26px; top: 483.24px"
+			class="cls_005">
+			<span class="cls_005">GET /space</span>
+		</div>
+		<div style="position: absolute; left: 54.45px; top: 516.87px"
+			class="cls_002">
+			<span class="cls_002">Get all line segments passing through at
+				least N points. Note that a line segment should be a set of</span>
+		</div>
+		<div style="position: absolute; left: 54.45px; top: 534.49px"
+			class="cls_002">
+			<span class="cls_002">points.</span>
+		</div>
+		<div style="position: absolute; left: 63.26px; top: 568.92px"
+			class="cls_005">
+			<span class="cls_005">GET /lines/{n}</span>
+		</div>
+		<div style="position: absolute; left: 54.45px; top: 602.56px"
+			class="cls_002">
+			<span class="cls_002">Remove all points from the space</span>
+		</div>
+		<div style="position: absolute; left: 63.26px; top: 636.99px"
+			class="cls_005">
+			<span class="cls_005">DELETE /space</span>
+		</div>
+		<div style="position: absolute; left: 30.43px; top: 675.43px"
+			class="cls_004">
+			<span class="cls_004">Additional rules</span>
+		</div>
+		<div style="position: absolute; left: 54.45px; top: 717.87px"
+			class="cls_002">
+			<span class="cls_002">All code should be under version
+				control, on a publicly accessible git repository (e.g., a GitHub</span>
+		</div>
+		<div style="position: absolute; left: 54.45px; top: 735.49px"
+			class="cls_002">
+			<span class="cls_002">repository);</span>
+		</div>
+		<div style="position: absolute; left: 54.45px; top: 753.11px"
+			class="cls_002">
+			<span class="cls_002">Unless specified in the instructions
+				above, the API should consume and produce JSON;</span>
+		</div>
+		<div style="position: absolute; left: 54.45px; top: 770.73px"
+			class="cls_002">
+			<span class="cls_002">The languages you can choose to
+				implement are: Java, Kotlin, JavaScript. Other web/JVM based</span>
+		</div>
+	</div>
+	<div
+		style="position: absolute; left: 50%; margin-left: -297px; top: 852px; width: 595px; height: 842px; border-style: outset; overflow: hidden">
+		<div style="position: absolute; left: 54.45px; top: 51.60px"
+			class="cls_002">
+			<span class="cls_002">languages could be taken into
+				consideration.</span>
+		</div>
+		<div style="position: absolute; left: 30.43px; top: 86.04px"
+			class="cls_004">
+			<span class="cls_004">Suggestions</span>
+		</div>
+		<div style="position: absolute; left: 54.45px; top: 128.48px"
+			class="cls_002">
+			<span class="cls_002">Properly naming variables and
+				documenting the code can help us understand your solution;</span>
+		</div>
+		<div style="position: absolute; left: 54.45px; top: 146.10px"
+			class="cls_002">
+			<span class="cls_002">Validating all inputs to your program
+				will help your solution pass our test cases;</span>
+		</div>
+		<div style="position: absolute; left: 54.45px; top: 163.71px"
+			class="cls_002">
+			<span class="cls_002">There is no bound on the computational
+				complexity of the solution, but solutions with good</span>
+		</div>
+		<div style="position: absolute; left: 54.45px; top: 181.33px"
+			class="cls_002">
+			<span class="cls_002">computational complexity will earn you
+				bonus points.</span>
+		</div>
+	</div>
+</body>
+</html>
