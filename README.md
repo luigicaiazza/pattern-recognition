@@ -67,7 +67,7 @@ Before you begin, ensure you have met the following requirements:
    ```
 2. Go to the checked out directory
    ```sh
-   $ cd patternrecognition
+   $ cd pattern-recognition
    ```
 3. Build and install the application
    ```sh
